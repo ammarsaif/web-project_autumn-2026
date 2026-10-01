@@ -1,0 +1,206 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+html{
+    font-size: 60%;
+    overflow-x: hidden;
+}
+body{
+    background: #3d271c;
+    color:#f3ecdb;
+}
+
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 4rem 5%;
+    background: #3d271c8a;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+#menu-icon{
+    font-size: 3.5rem;
+    color: #d4764e;
+    display: none;
+}
+.logo{
+    font-size: 3rem;
+    color: #f3ecdb;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.logo:hover{
+    transform: scale(1.1);
+}
+
+span{
+    background: linear-gradient(27deg, #f3ecdb 10%, #d4764e 100%);
+    background-clip: text;
+    color: transparent;
+}
+
+.navbar Link{
+    font-size: 1.8rem;
+    color: #f3ecdb;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+    border-bottom: 3px solid transparent;
+}
+.navbar Link:hover{
+    color: #d4764e;
+    border-bottom: 3px solid #d4764e;
+}
+
+.login-btn{
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    background: linear-gradient(27deg, #f3ecdb 10%, #d4764e 100%);
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    color: #3d271c;
+    border: none;
+    text-wrap: nowrap;
+}
+.login-btn:hover{
+    transform: scale(1.05);
+}
+.section{
+    min-height: 100vh;
+    padding: 12rem 15%;
+}
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem;
+}
+.home-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: left;
+}
+.home-content h1{
+    font-size: 8cap;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+.home-content h2{
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1.5rem;
+}
+.btn{
+  display: inline-block;
+  padding: 1rem 3rem;
+  background-color: #f3ecdb;
+  box-shadow: 0 0 25px #f3ecdb;
+  border-radius: 3rem;
+  font-size: 1.8rem;
+  color: black;
+  border: 2px solid transparent;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+}
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #f3ecdb,
+              0 0 50px #f3ecdb,
+}
+
+.btn-group a:nth-of-type(2) {
+    background-color: black;
+    color: #d4764e;
+    border: 2px solid #d4764e;
+    box-shadow: 0 0 25px transparent;
+}
+.btn-group a:nth-of-type(2):hover {
+    box-shadow: 0 0 25px #d4764e;
+    background-color: #d4764e;
+    color: black;
+
+}
+
+
+.restaurants h1{
+    font-size: 8cap;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    line-height: 1;
+    text-align: center;
+}
+.restaurant-box{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    gap: 3rem;
+}
+.menu-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #3d271c8a;
+    border: 2px solid #f3ecdb;
+    border-radius: 3rem;
+    gap: 2rem;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 0 5px #f3ecdb;
+    transition: 0.3s ease;
+}
+.menu-card:hover{
+    box-shadow: 0 0 25px #f3ecdb,
+                0 0 50px #f3ecdb;
+    transform: scale(1.02);
+}
+.menu-card img{
+    width: 100%;
+    height: auto;
+}
+.menu-card .btn{
+    margin: 0rem 2rem;
+    margin-bottom: 3rem;
+}
+.login h1{
+    font-size: 8cap;
+    font-weight: 700;
+    margin-top: 10%;
+    margin-bottom: 2rem;
+    line-height: 1;
+    text-align: center;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+.login input{
+    border: 2px solid #d4764e;
+    border-radius: 3rem;
+    padding: 1rem;
+
+}

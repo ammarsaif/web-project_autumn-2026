@@ -1,4 +1,4 @@
-import "./App.css";
+import './App.css'
 import Home from "./components/Home";
 import Menu from "./components/Menu";
 import Map from "./components/Map"
@@ -7,20 +7,25 @@ import Login from "./components/Login";
 import Cart from "./components/Cart"
 import {BrowserRouter, Routes, Route, Link} from "react-router";
 
+
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <nav>
-          <ul>
+      <div >
+        <header className="header">
+          <Link to="/" className="logo">Restaurant <span> & </span> Cafe</Link>
+
+          <nav className="navbar">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/menu">Menu</Link></li>
-            <li><Link to="/map">Map</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-          </ul>
-        </nav>
-        <Link to="/login" class="login-btn">Login</Link>
-        <Link to="/cart" class="cart-icon">Cart</Link>
+            <Link to="/menu">Menu</Link>
+            <Link to="/map">Map</Link>
+            <Link to="/contact">Contact</Link>
+          </nav>
+          <Link to="/login" className="login-btn">Login</Link>
+          <Link to="/cart" className="cart-icon">Cart</Link>
+        </header>
+        
+
 
 
         <Routes>
