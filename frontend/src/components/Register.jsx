@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-
+import { Link } from "react-router";
+import "../App.css";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -28,7 +28,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="login">
       <h1>Sign up</h1>
 
       <form onSubmit={handleSubmit}>
