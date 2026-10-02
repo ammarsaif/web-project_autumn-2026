@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-
+import { Link } from "react-router";
+import "../App.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +12,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login">
       <h1>Login</h1>
 
       <form onSubmit={handleSubmit}>
