@@ -8,7 +8,7 @@ const getUsers = async () => {
 
     const rows = await conn.query("SELECT * FROM users");
 
-    return rows;
+    return rows[0];
   } finally {
     if (conn) conn.release();
   }
