@@ -4,7 +4,7 @@ import {
   addRestaurant,
   updateRestaurant,
   deleteRestaurant,
-} from "../models/restaurants-models.js";
+} from "../models/restaurants-model.js";
 
 // GET all restaurants
 const getAllRestaurants = async (req, res) => {
