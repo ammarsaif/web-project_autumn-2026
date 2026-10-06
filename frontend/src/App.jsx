@@ -6,6 +6,7 @@ import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Cart from "./components/Cart"
+import Admin from './components/Admin';
 import {BrowserRouter, Routes, Route, Link} from "react-router";
 import { useState } from 'react';
 
@@ -41,6 +42,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </main>
       </div>
