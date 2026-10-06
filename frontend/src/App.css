@@ -162,7 +162,7 @@ span{
 }
 
 
-.restaurants h1{
+.restaurants h1, .mapH h1{
     font-size: 8cap;
     font-weight: 700;
     margin-top: 1.5rem;
@@ -267,6 +267,11 @@ span{
     border: 2px solid #d4764e;
     border-radius: 3rem;
     padding: 1rem;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
 }
 @media(max-width:900px){
     .header{
