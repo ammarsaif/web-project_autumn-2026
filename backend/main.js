@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 
 import userRoutes from "./src/routes/user-routes.js"; // import user-routes file
 import restaurantsRoutes from "./src/routes/restaurants-routes.js"; // import restaurants table routes
@@ -11,6 +13,7 @@ import orderItemsRoutes from "./src/routes/order_items-routes.js";
 import menuScheduleRoutes from "./src/routes/menu_schedule-routes.js";
 import notificationRoutes from "./src/routes/notifications-routes.js";
 import announcementRoutes from "./src/routes/announcements-routes.js";
+import authRoutes from "./src/authentication/auth-routes.js";
 
 const hostname = "127.0.0.1";
 const app = express();
@@ -34,6 +37,7 @@ app.use("/api/order-items", orderItemsRoutes);
 app.use("/api/menu-schedule", menuScheduleRoutes);
 app.use("/api/notifications", notificationRoutes);
 app.use("/api/announcements", announcementRoutes);
+app.use("/api/auth", authRoutes);
 
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/api/`);

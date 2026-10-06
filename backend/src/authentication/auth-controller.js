@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
-import { getUserByEmail } from "../authentication/auth-model.js";
+import { getUserByEmail } from "./auth-model.js";
 
 const loginUser = async (req, res) => {
   try {
@@ -23,8 +24,21 @@ const loginUser = async (req, res) => {
       });
     }
 
+    const token = jwt.sign(
+      {
+        user_id: user.user_id,
+        role_id: user.role_id,
+        email: user.email,
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "1h",
+      },
+    );
+
     return res.status(200).json({
       message: "Login Successful ",
+      token: token,
     });
   } catch (error) {
     console.error(error);
@@ -34,3 +48,5 @@ const loginUser = async (req, res) => {
     });
   }
 };
+
+export { loginUser };

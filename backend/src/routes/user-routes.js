@@ -3,7 +3,6 @@ import express from "express";
 import {
   getAllUsers,
   getSingleUser,
-  getUserEmail,
   createUser,
   editUser,
   removeUser,

@@ -96,11 +96,4 @@ const deleteUser = async (id) => {
   }
 };
 
-export {
-  getUsers,
-  getUserById,
-  getUserByEmail,
-  addUser,
-  updateUser,
-  deleteUser,
-};
+export { getUsers, getUserById, addUser, updateUser, deleteUser };
