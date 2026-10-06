@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 import userRoutes from "./src/routes/user-routes.js"; // import user-routes file
 import restaurantsRoutes from "./src/routes/restaurants-routes.js"; // import restaurants table routes
@@ -12,6 +13,12 @@ import menuScheduleRoutes from "./src/routes/menu_schedule-routes.js";
 const hostname = "127.0.0.1";
 const app = express();
 const port = 3000;
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  }),
+);
 
 app.use(express.json());
 
