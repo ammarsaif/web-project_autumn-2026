@@ -182,17 +182,17 @@ span{
     display: flex;
     flex-direction: column;
     text-align: left;
-    background-color: #3d271c8a;
-    border: 2px solid #3d271c;
+    background-color: #ffffff;
+    border: 2px solid #3d271c8e;
     border-radius: 3rem;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 0 5px #3d271c;
+    box-shadow: 0 0 5px #3d271c8e;
     transition: 0.3s ease;
 }
 .menu-card:hover{
-    box-shadow: 0 0 25px #3d271c,
-                0 0 50px #3d271c;
+    box-shadow: 0 0 25px #3d271c8e,
+                0 0 50px #3d271c8e;
     transform: scale(1.02);
 }
 .menu-card img{
