@@ -10,6 +10,11 @@ import {
   removeMenuSchedule,
 } from "../controllers/menu_schedule-controller.js";
 
+import {
+  authenticateToken,
+  requireAdmin,
+} from "../authentication/auth-middlewear.js";
+
 const router = express.Router();
 
 // GET all menu schedules
@@ -25,12 +30,12 @@ router.get("/week/:weekStartDate", getActiveSchedulesByWeek);
 router.get("/:id", getSingleMenuSchedule);
 
 // CREATE menu schedule
-router.post("/", createMenuSchedule);
+router.post("/", authenticateToken, requireAdmin, createMenuSchedule);
 
 // UPDATE menu schedule
-router.put("/:id", editMenuSchedule);
+router.put("/:id", authenticateToken, requireAdmin, editMenuSchedule);
 
 // DELETE menu schedule
-router.delete("/:id", removeMenuSchedule);
+router.delete("/:id", authenticateToken, requireAdmin, removeMenuSchedule);
 
 export default router;

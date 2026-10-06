@@ -1,3 +1,5 @@
+import bcrypt from "bcrypt";
+
 import {
   getUsers,
   getUserById,
@@ -20,6 +22,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+// By id
 const getSingleUser = async (req, res) => {
   try {
     const user = await getUserById(req.params.id);
@@ -42,18 +45,20 @@ const getSingleUser = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
+    const password_hash = await bcrypt.hash(req.body.password, 10);
     const user = {
       role_id: req.body.role_id,
       name: req.body.name,
       email: req.body.email,
-      password_hash: req.body.password_hash,
+      password_hash: password_hash,
     };
 
     const result = await addUser(user);
+    console.log("INSERT RESULT:", result);
 
     res.status(201).json({
       message: "User created",
-      user_id: Number(result.insertId),
+      user_id: Number(result[0].insertId),
     });
   } catch (error) {
     console.error(error);
