@@ -6,14 +6,15 @@ const getUsers = async () => {
   try {
     conn = await pool.getConnection();
 
-    const rows = await conn.query("SELECT * FROM users");
+    const [rows] = await conn.query("SELECT * FROM users");
 
-    return rows[0];
+    return rows;
   } finally {
     if (conn) conn.release();
   }
 };
 
+// Get user by ID
 const getUserById = async (id) => {
   let conn;
 
@@ -95,4 +96,11 @@ const deleteUser = async (id) => {
   }
 };
 
-export { getUsers, getUserById, addUser, updateUser, deleteUser };
+export {
+  getUsers,
+  getUserById,
+  getUserByEmail,
+  addUser,
+  updateUser,
+  deleteUser,
+};
