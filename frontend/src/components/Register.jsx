@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "../App.css";
 const Register = () => {
   const [name, setName] = useState("");
@@ -8,7 +8,9 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (password.length < 8) {
@@ -22,9 +24,34 @@ const Register = () => {
     }
 
     setError("");
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Password:", password);
+
+    try {
+      const response = await fetch("http://127.0.0.1:3000/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          role_id: 2,
+          name: name,
+          email: email,
+          password_hash: password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Something went wrong");
+        return;
+      }
+
+      alert("Account created! You can now log in.");
+      navigate("/login");
+    } catch (err) {
+      console.error(err);
+      setError("Could not connect to the server");
+    }
   };
 
   return (
