@@ -4,6 +4,7 @@ import Menu from "./components/Menu";
 import Map from "./components/Map"
 import Contact from "./components/Contact";
 import Login from "./components/Login";
+import Register from "./components/Register";
 import Cart from "./components/Cart"
 import {BrowserRouter, Routes, Route, Link} from "react-router";
 import { useState } from 'react';
@@ -38,6 +39,7 @@ function App() {
             <Route path="/map" element={<Map />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </main>

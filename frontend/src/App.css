@@ -133,8 +133,8 @@ span{
 .btn{
     display: inline-block;
     padding: 1rem 3rem;
-    background-color: #f3ecdb;
-    box-shadow: 0 0 25px #f3ecdb;
+    background-color: #ffffff;
+    box-shadow: 0 0 25px #ffffff;
     border-radius: 3rem;
     font-size: 1.8rem;
     color: black;
@@ -145,7 +145,7 @@ span{
 .btn:hover {
     transform: scale(1.05);
     box-shadow: 0 0 25px #f3ecdb,
-                0 0 50px #f3ecdb,
+                0 0 50px #f3ecdb
 }
 
 .btn-group a:nth-of-type(2) {
@@ -172,37 +172,82 @@ span{
 }
 .restaurant-box{
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    place-items: center;
+    grid-template-columns: repeat(auto-fit, 280px);
+    justify-content: center;
     gap: 3rem;
 }
 .menu-card{
+    width: 280px;
+    height: 350px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    text-align: left;
     background-color: #3d271c8a;
-    border: 2px solid #f3ecdb;
+    border: 2px solid #3d271c;
     border-radius: 3rem;
-    gap: 2rem;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 0 5px #f3ecdb;
+    box-shadow: 0 0 5px #3d271c;
     transition: 0.3s ease;
 }
 .menu-card:hover{
-    box-shadow: 0 0 25px #f3ecdb,
-                0 0 50px #f3ecdb;
+    box-shadow: 0 0 25px #3d271c,
+                0 0 50px #3d271c;
     transform: scale(1.02);
 }
 .menu-card img{
+    display: block;
     width: 100%;
-    height: auto;
+    height: 160px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.card-content {
+    flex: 1;
+    padding: 1rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.card-content h3 {
+    margin: 0;
+    font-size: 2.2rem;
+}
+.description {
+    flex: 1;
+    margin: 0.5rem 0 1rem;
+    overflow: hidden;
+}
+.allergens {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+.allergen {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border: 1px solid #f3ecdb;
+    border-radius: 4px;
+}
+.card-line {
+    height: 1px;
+    background-color: #f3ecdb;
+    margin: 1rem 0;
+}
+.card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.price {
+    font-weight: bold;
 }
 .menu-card .btn{
-    margin: 0rem 2rem;
-    margin-bottom: 3rem;
+    margin: 0;
 }
 .login h1{
     font-size: 8cap;
@@ -237,7 +282,7 @@ span{
         width: 50%;
         height: 100vh;
         padding: 3rem 3rem;
-        background: #3d271cd3;
+        background: #3d271cea;
         border-left: 2px solid #d4764e;
         display: flex;
         flex-direction: column;
