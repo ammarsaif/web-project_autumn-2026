@@ -18,12 +18,16 @@ const Login = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({
+          email,
+          password,
+        }),
       });
 
       const data = await response.json();
+      console.log("LOGIN RESPONSE:", data);
 
-      // Check if backend returned an error (e.g. 401 Invalid password, 404 User not found)
+      // Login failed
       if (!response.ok) {
         setError(data.error || "Login failed");
         return;
@@ -31,13 +35,23 @@ const Login = () => {
 
       setError("");
 
-      // Save JWT token received from backend
+      // Save JWT token
       localStorage.setItem("token", data.token);
 
-      // Redirect home on success
-      navigate("/");
+      // Save user information
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      // Check user's role
+      if (data.user.role_id === 1) {
+        // Admin
+        navigate("/admin");
+      } else {
+        // Normal customer
+        navigate("/");
+      }
     } catch (err) {
       console.error(err);
+
       setError("Could not connect to the server");
     }
   };
@@ -48,28 +62,36 @@ const Login = () => {
 
       <form onSubmit={handleSubmit}>
         <label>Email</label>
+
         <br />
+
         <input
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           required
         />
+
         <br />
 
         <label>Password</label>
+
         <br />
+
         <input
           type="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           required
         />
+
         <br />
 
         {error && <p className="error">{error}</p>}
+
         <button type="submit">Login</button>
       </form>
+
       <p>
         Don't have an account? <Link to="/register">Sign up</Link>
       </p>

@@ -1,18 +1,29 @@
-import '../App.css'
+import "../App.css";
 import { Link } from "react-router";
 
-const Home= ()=>{
-    return(
-        <div className="home-content">
-            <h1>Modern <span>Restaurant</span> Experience</h1>
-            <h2>Discover a modern restaurant and café website prototype featuring online ordering, digital menus, reservations, and a responsive user experience.</h2>
+const Home = () => {
+  return (
+    <div className="home-content">
+      <h1>
+        Modern <span>Restaurant</span> Experience
+      </h1>
 
+      <h2>
+        Discover a modern restaurant and café website prototype featuring online
+        ordering, digital menus, reservations, and a responsive user experience.
+      </h2>
 
-            <div class="btn-group">
-            <Link to="/menu" className="btn">Menu</Link>
-            <Link to="/login" className="btn">Login</Link>
-            </div>
-        </div>
-    );
+      <div className="btn-group">
+        <Link to="/menu" className="btn">
+          Menu
+        </Link>
+
+        <Link to="/login" className="btn">
+          Login
+        </Link>
+      </div>
+    </div>
+  );
 };
+
 export default Home;
