@@ -45,12 +45,51 @@ const getSingleUser = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    const password_hash = await bcrypt.hash(req.body.password, 10);
+    console.log("REQUEST BODY:", req.body);
+
+    const { name, email, password } = req.body;
+
+    console.log("NAME:", name);
+    console.log("EMAIL:", email);
+    console.log("PASSWORD:", password);
+
+    const password_hash = await bcrypt.hash(password, 10);
+
     const user = {
-      role_id: req.body.role_id,
-      name: req.body.name,
-      email: req.body.email,
-      password_hash: password_hash,
+      role_id: 2,
+      name,
+      email,
+      password_hash,
+    };
+
+    const result = await addUser(user);
+
+    console.log("INSERT RESULT:", result);
+
+    res.status(201).json({
+      message: "User created",
+      user_id: Number(result[0].insertId),
+    });
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      error: "Failed to create user",
+    });
+  }
+};
+
+/*
+
+const createUser = async (req, res) => {
+  try {
+    const { role_id, name, email, password } = req.body;
+    const password_hash = await bcrypt.hash(password, 10);
+    const user = {
+      role_id: 2, // 2 = customer
+      name,
+      email,
+      password_hash,
     };
 
     const result = await addUser(user);
@@ -68,6 +107,8 @@ const createUser = async (req, res) => {
     });
   }
 };
+
+*/
 
 const editUser = async (req, res) => {
   try {

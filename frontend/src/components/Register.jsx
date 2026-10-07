@@ -35,7 +35,7 @@ const Register = () => {
           role_id: 2,
           name: name,
           email: email,
-          password_hash: password,
+          password: password,
         }),
       });
 
