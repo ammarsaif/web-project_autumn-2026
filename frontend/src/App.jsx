@@ -1,7 +1,8 @@
-import './App.css'
+import "./App.css";
+
 import Home from "./components/Home";
 import Menu from "./components/Menu";
-import Map from "./components/Map"
+import Map from "./components/Map";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -11,23 +12,65 @@ import {BrowserRouter, Routes, Route, Link} from "react-router";
 import { useState } from 'react';
 
 function App() {
-  const [open, setOpen]= useState(false)
+  const [open, setOpen] = useState(false);
+
   return (
     <BrowserRouter>
-      <div><i ></i>
+      <AppContent open={open} setOpen={setOpen} />
+    </BrowserRouter>
+  );
+}
+
+function AppContent({ open, setOpen }) {
+  const location = useLocation();
+
+  // Don't show customer header on admin page
+  const isAdminPage = location.pathname.startsWith("/admin");
+
+  return (
+    <div>
+      {!isAdminPage && (
         <header className="header">
           <Link to="/" className="logo">Burger <span> Hut</span></Link>
 
           <nav className={open ? "navbar active" : "navbar"}>
-            <Link to="/" onClick={() => setOpen(false)}>Home</Link>
-            <Link to="/menu" onClick={() => setOpen(false)}>Menu</Link>
-            <Link to="/map" onClick={() => setOpen(false)}>Map</Link>
-            <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
-            <Link to="/login" className="login-btn" onClick={() => setOpen(false)}>Login</Link>
+            <Link to="/" onClick={() => setOpen(false)}>
+              Home
+            </Link>
+
+            <Link to="/menu" onClick={() => setOpen(false)}>
+              Menu
+            </Link>
+
+            <Link to="/map" onClick={() => setOpen(false)}>
+              Map
+            </Link>
+
+            <Link to="/contact" onClick={() => setOpen(false)}>
+              Contact
+            </Link>
+
+            <Link
+              to="/login"
+              className="login-btn"
+              onClick={() => setOpen(false)}
+            >
+              Login
+            </Link>
           </nav>
+
           <div className="header-icons">
-            <Link to="/cart" className="fa-solid fa-cart-shopping" id="cart-icon"></Link>
-            <i className={open ? "fa-solid fa-xmark" : "fa-solid fa-bars"} id="menu-icon" onClick={() => setOpen(!open)}></i>
+            <Link
+              to="/cart"
+              className="fa-solid fa-cart-shopping"
+              id="cart-icon"
+            ></Link>
+
+            <i
+              className={open ? "fa-solid fa-xmark" : "fa-solid fa-bars"}
+              id="menu-icon"
+              onClick={() => setOpen(!open)}
+            ></i>
           </div>
         </header>
         
@@ -50,4 +93,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
