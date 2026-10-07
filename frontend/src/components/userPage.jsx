@@ -184,8 +184,6 @@ function UserPage() {
     <div className="user-page">
       {/* HEADER */}
       <header className="user-header">
-        <div className="user-logo">🍔 My Restaurant</div>
-
         <div className="user-header-right">
           <nav>
             <a href="#burgers">Burgers</a>
