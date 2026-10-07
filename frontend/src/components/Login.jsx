@@ -13,34 +13,28 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:3000/api/users");
-      const users = await response.json();
+      const response = await fetch("http://127.0.0.1:3000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-      const foundUser = users.find(
-        (user) => user.email === email && user.password_hash === password,
-      );
+      const data = await response.json();
 
-      if (!foundUser) {
-        setError("Wrong email or password");
-        return;
-      }
-
-      if (foundUser.is_active === 0) {
-        setError("This account is not active");
+      // Check if backend returned an error (e.g. 401 Invalid password, 404 User not found)
+      if (!response.ok) {
+        setError(data.error || "Login failed");
         return;
       }
 
       setError("");
 
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          user_id: foundUser.user_id,
-          name: foundUser.name,
-          role_id: foundUser.role_id,
-        }),
-      );
+      // Save JWT token received from backend
+      localStorage.setItem("token", data.token);
 
+      // Redirect home on success
       navigate("/");
     } catch (err) {
       console.error(err);
