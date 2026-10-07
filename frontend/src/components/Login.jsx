@@ -47,7 +47,7 @@ const Login = () => {
         navigate("/admin");
       } else {
         // Normal customer
-        navigate("/");
+        navigate("/user");
       }
     } catch (err) {
       console.error(err);
@@ -92,7 +92,7 @@ const Login = () => {
         <button type="submit">Login</button>
       </form>
 
-      <p class="register-text">
+      <p className="register-text">
         Don't have an account? <Link to="/register">Sign up</Link>
       </p>
     </div>

@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Cart from "./components/Cart";
 import Admin from "./components/AdminPage";
+import UserPage from "./components/userPage";
 
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router";
 
@@ -92,6 +93,7 @@ function AppContent({ open, setOpen }) {
           <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/user" element={<UserPage />} />
         </Routes>
       </main>
     </div>
