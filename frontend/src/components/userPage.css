@@ -12,8 +12,8 @@
   z-index: 100;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 
   padding: 20px 7%;
 
@@ -28,8 +28,17 @@
   font-weight: bold;
 }
 
+/* RIGHT SIDE */
+
+.user-header-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
 .user-header nav {
   display: flex;
+  align-items: center;
   gap: 30px;
 }
 
@@ -357,4 +366,33 @@
   .item-total {
     text-align: center;
   }
+}
+
+/* LOGOUT */
+
+.logout-button {
+  width: auto;
+  padding: 8px 16px;
+  margin: 0;
+
+  background-color: #8b4513;
+  color: white;
+
+  border: none;
+  border-radius: 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #6f350f;
+  transform: translateY(-2px);
+}
+
+.logout-button:active {
+  transform: translateY(0);
 }
