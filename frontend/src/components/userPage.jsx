@@ -16,6 +16,81 @@ function UserPage() {
     navigate("/");
   };
 
+  // Add burger to cart
+  const addToCart = (burger) => {
+    const burgerInCart = cart.find(
+      (item) => item.menu_item_id === burger.menu_item_id,
+    );
+
+    if (burgerInCart) {
+      const newCart = cart.map((item) => {
+        if (item.menu_item_id === burger.menu_item_id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+
+        return item;
+      });
+
+      setCart(newCart);
+    } else {
+      const newBurger = {
+        ...burger,
+        quantity: 1,
+      };
+
+      setCart([...cart, newBurger]);
+    }
+  };
+
+  const increaseQuantity = (id) => {
+    const newCart = cart.map((item) => {
+      if (item.menu_item_id === id) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+        };
+      }
+
+      return item;
+    });
+
+    setCart(newCart);
+  };
+
+  const decreaseQuantity = (id) => {
+    const newCart = cart.map((item) => {
+      if (item.menu_item_id === id) {
+        return {
+          ...item,
+          quantity: item.quantity - 1,
+        };
+      }
+
+      return item;
+    });
+
+    const updatedCart = newCart.filter((item) => item.quantity > 0);
+
+    setCart(updatedCart);
+  };
+
+  const removeFromCart = (id) => {
+    const newCart = cart.filter((item) => item.menu_item_id !== id);
+
+    setCart(newCart);
+  };
+
+  const cartTotal = cart.reduce((total, item) => {
+    return total + Number(item.price) * item.quantity;
+  }, 0);
+
+  const cartCount = cart.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
+
   // Get burgers from backend
   useEffect(() => {
     fetch("http://127.0.0.1:3000/api/menu-items")
@@ -37,6 +112,7 @@ function UserPage() {
       });
   }, []);
 
+  /*
   // Add burger to cart
   const addToCart = (burger) => {
     setCart((currentCart) => {
@@ -101,6 +177,8 @@ function UserPage() {
 
   // Number of products in cart
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+
+  */
 
   return (
     <div className="user-page">
