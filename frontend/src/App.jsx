@@ -56,12 +56,12 @@ function AppContent({ open, setOpen }) {
               Contact
             </Link>
 
-            <Link
-              to="/login"
-              className="login-btn"
-              onClick={() => setOpen(false)}
-            >
+            <Link to="/login" onClick={() => setOpen(false)}>
               Login
+            </Link>
+
+            <Link to="/register" onClick={() => setOpen(false)}>
+              Register
             </Link>
           </nav>
 

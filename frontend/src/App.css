@@ -348,8 +348,8 @@ button[type="submit"]:active {
   font-size: 2rem;
   font-weight: 600;
   color: #3d271c;
-  margin-top: 6;
-  margin-bottom: 3px;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
 .login input {
@@ -358,5 +358,16 @@ button[type="submit"]:active {
   font-size: 1.6rem;
   border: 1px solid #aaa;
   border-radius: 8px;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+}
+
+.register-text {
+  font-size: 1.8rem;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.register-text a {
+  font-size: 2rem;
+  font-weight: 600;
 }
