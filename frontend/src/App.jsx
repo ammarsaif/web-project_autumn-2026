@@ -6,11 +6,10 @@ import Map from "./components/Map";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Cart from "./components/Cart";
-import AdminPage from "./components/AdminPage";
-
-import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router";
-import { useState } from "react";
+import Cart from "./components/Cart"
+import Admin from './components/Admin';
+import {BrowserRouter, Routes, Route, Link} from "react-router";
+import { useState } from 'react';
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -32,9 +31,7 @@ function AppContent({ open, setOpen }) {
     <div>
       {!isAdminPage && (
         <header className="header">
-          <Link to="/" className="logo">
-            Restaurant <span>&</span> Cafe
-          </Link>
+          <Link to="/" className="logo">Burger <span> Hut</span></Link>
 
           <nav className={open ? "navbar active" : "navbar"}>
             <Link to="/" onClick={() => setOpen(false)}>
@@ -76,30 +73,24 @@ function AppContent({ open, setOpen }) {
             ></i>
           </div>
         </header>
-      )}
+        
 
-      <main className={!isAdminPage ? "section" : ""}>
-        <Routes>
-          <Route path="/" element={<Home />} />
 
-          <Route path="/menu" element={<Menu />} />
-
-          <Route path="/map" element={<Map />} />
-
-          <Route path="/contact" element={<Contact />} />
-
-          <Route path="/login" element={<Login />} />
-
-          <Route path="/register" element={<Register />} />
-
-          <Route path="/cart" element={<Cart />} />
-
-          {/* ADMIN */}
-          <Route path="/admin" element={<AdminPage />} />
-        </Routes>
-      </main>
-    </div>
-  );
+        <main className='section'>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/map" element={<Map />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/admin" element={<Admin />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
+  )
 }
 
 export default App;

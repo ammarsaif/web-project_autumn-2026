@@ -1,4 +1,5 @@
 import '../App.css'
+import Admin from './Admin';
 import { useEffect, useState } from 'react';
 
 
@@ -47,6 +48,8 @@ const Menu= ()=>{
                     </div>
                 ))}
             </div>
+            
+            <Admin menuItems={menuItems} setMenuItems={setMenuItems}/>
         </div>
     );
 };

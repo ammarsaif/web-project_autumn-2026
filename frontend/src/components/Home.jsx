@@ -13,17 +13,12 @@ const Home = () => {
         ordering, digital menus, reservations, and a responsive user experience.
       </h2>
 
-      <div className="btn-group">
-        <Link to="/menu" className="btn">
-          Menu
-        </Link>
-
-        <Link to="/login" className="btn">
-          Login
-        </Link>
-      </div>
-    </div>
-  );
+            <div className="btn-group">
+            <Link to="/menu" className="btn">Menu</Link>
+            <Link to="/login" className="btn">Login</Link>
+            </div>
+        </div>
+    );
 };
 
 export default Home;
