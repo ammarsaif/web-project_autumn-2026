@@ -82,7 +82,7 @@ function AppContent({ open, setOpen }) {
       )}
 
       {/* PAGES */}
-      <main className="section">
+      <main className={isAdminPage ? "admin-section" : "section"}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
