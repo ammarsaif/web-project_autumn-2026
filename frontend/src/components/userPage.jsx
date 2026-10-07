@@ -1,9 +1,20 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import "./userPage.css";
 
 function UserPage() {
   const [burgers, setBurgers] = useState([]);
   const [cart, setCart] = useState([]);
+
+  const navigate = useNavigate();
+
+  // Logout
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    navigate("/");
+  };
 
   // Get burgers from backend
   useEffect(() => {
@@ -16,7 +27,9 @@ function UserPage() {
         return response.json();
       })
       .then((data) => {
-        // If your API returns { data: [...] }, use data.data instead
+        console.log("Menu data:", data);
+
+        // If API returns { data: [...] }, use data.data
         setBurgers(data);
       })
       .catch((error) => {
@@ -95,14 +108,21 @@ function UserPage() {
       <header className="user-header">
         <div className="user-logo">🍔 My Restaurant</div>
 
-        <nav>
-          <a href="#burgers">Burgers</a>
-          <a href="#cart">🛒 Cart ({cartCount})</a>
-        </nav>
+        <div className="user-header-right">
+          <nav>
+            <a href="#burgers">Burgers</a>
+            <a href="#cart">🛒 Cart ({cartCount})</a>
+          </nav>
+
+          <button className="logout-button" onClick={handleLogout}>
+            🚪 Logout
+          </button>
+        </div>
       </header>
 
       {/* MAIN CONTENT */}
       <main>
+        {/* WELCOME */}
         <section className="welcome-section">
           <h1>Welcome to My Restaurant</h1>
           <p>Choose your favourite burger and add it to your cart.</p>
