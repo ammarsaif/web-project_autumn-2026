@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <div><i ></i>
         <header className="header">
-          <Link to="/" className="logo">Restaurant <span> & </span> Cafe</Link>
+          <Link to="/" className="logo">Burger <span> Hut</span></Link>
 
           <nav className={open ? "navbar active" : "navbar"}>
             <Link to="/" onClick={() => setOpen(false)}>Home</Link>

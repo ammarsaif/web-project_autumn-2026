@@ -49,7 +49,7 @@ const Menu= ()=>{
                 ))}
             </div>
             
-            <Admin />
+            <Admin menuItems={menuItems} setMenuItems={setMenuItems}/>
         </div>
     );
 };
